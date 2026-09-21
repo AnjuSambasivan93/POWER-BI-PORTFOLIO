@@ -33,8 +33,34 @@ The objective of this dashboard is to provide a clear view of financial performa
 
 The dashboard uses a simple data model consisting of:
 
-- **Main Data** – Contains income and expense transactions, including category, sub-category, amount, bill due date, and payment status.
-- **Income Goal** – Contains the income target for each month.
-- **Dim Month** – Month dimension used to provide consistent filtering and chronological month ordering across the report.
+- **Main Data** - Contains income and expense transactions, including category, sub-category, amount, bill due date, and payment status.
+- **Income Goal** - Contains the income target for each month.
+- **Dim Month** - Month dimension used to provide consistent filtering and chronological month ordering across the report.
 
 `Dim Month` has one-to-many relationships with both `Main Data` and `Income Goal`.
+
+## DAX Measures
+
+Key DAX measures were created to calculate financial KPIs and respond dynamically to report filters.
+
+```DAX
+Total Income =
+CALCULATE(
+    [Total Amount],
+    'Main Data'[Main Type] = "Income"
+)
+
+Total Expenses =
+CALCULATE(
+    [Total Amount],
+    'Main Data'[Main Type] = "Expenses"
+)
+
+Available Balance =
+[Total Income] - [Total Expenses]
+Total Income Target
+Total Income Target =
+SUM('Income Goal'[Income Target])
+```
+
+
