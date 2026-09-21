@@ -28,3 +28,13 @@ The objective of this dashboard is to provide a clear view of financial performa
 ## Dashboard
 
 ![Personal Finance Dashboard](Personal-Finance-Dashboard.png)
+
+## Data Model
+
+The dashboard uses a simple data model consisting of:
+
+- **Main Data** – Contains income and expense transactions, including category, sub-category, amount, bill due date, and payment status.
+- **Income Goal** – Contains the income target for each month.
+- **Dim Month** – Month dimension used to provide consistent filtering and chronological month ordering across the report.
+
+`Dim Month` has one-to-many relationships with both `Main Data` and `Income Goal`.
