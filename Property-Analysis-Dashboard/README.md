@@ -21,16 +21,16 @@ The analysis covers **3,914 location-level property median records** representin
 ## Data Pipeline
 
 Raw Property & Location Data  
-→ SSIS ETL  
-→ SQL Server Staging Tables  
-→ Dimensional Data Warehouse  
-→ SQL Reporting View  
-→ Power BI Dashboard
+- SSIS ETL  
+- SQL Server Staging Tables  
+- Dimensional Data Warehouse  
+- SQL Reporting View  
+- Power BI Dashboard
 
 Two SSIS packages were used to manage the ETL process:
 
-- `Load_Raw_Data.dtsx` – extracts the source data and loads the staging tables.
-- `Load_DW_Data.dtsx` – transforms and loads the dimensional data warehouse.
+- `Load_Raw_Data.dtsx` : extracts the source data and loads the staging tables.
+- `Load_DW_Data.dtsx` : transforms and loads the dimensional data warehouse.
 
 A SQL reporting view, `vw_PropertyAnalysis`, provides the analytical dataset used by Power BI.
 
@@ -58,6 +58,39 @@ The Power BI dashboard provides:
 - Minimum and maximum values by city/location area
 - Interactive location filtering
 
+## DAX Measures
+
+DAX measures were created to support dynamic analysis and KPI reporting in the Power BI dashboard.
+
+### Highest Value Suburb
+
+```DAX
+Highest Value Suburb =
+VAR MaxValue =
+    MAX(vw_PropertyAnalysis[PropertyMedianValue])
+RETURN
+    CALCULATE(
+        MAX(vw_PropertyAnalysis[Suburb]),
+        vw_PropertyAnalysis[PropertyMedianValue] = MaxValue
+    )
+```
+
+Identifies the suburb associated with the highest property median value in the current filter context.
+
+### Lowest Value Suburb
+
+```DAX
+Lowest Value Suburb =
+VAR MinValue =
+    MIN(vw_PropertyAnalysis[PropertyMedianValue])
+RETURN
+    CALCULATE(
+        MAX(vw_PropertyAnalysis[Suburb]),
+        vw_PropertyAnalysis[PropertyMedianValue] = MinValue
+    )
+```
+
+Identifies the suburb associated with the lowest property median value in the current filter context.
 ## Key Findings
 
 ### Property Value Distribution
@@ -66,9 +99,9 @@ The dataset contains **3,914 location-level records** across four property media
 
 | Property Median Value | Locations | Share |
 |---|---:|---:|
-| $0–$750K | 3,245 | 82.91% |
-| $750K–$1.5M | 578 | 14.77% |
-| $1.5M–$2.5M | 86 | 2.20% |
+| $0-$750K | 3,245 | 82.91% |
+| $750K-$1.5M | 578 | 14.77% |
+| $1.5M-$2.5M | 86 | 2.20% |
 | $2.5M+ | 5 | 0.13% |
 
 Approximately **97.7% of analysed locations had property median values below $1.5M**, while only about **2.3% exceeded $1.5M**.
@@ -89,11 +122,11 @@ This demonstrates substantial variation in property median values across NSW loc
 
 Other high-value suburbs included:
 
-- Seaforth – $2.656M
-- Castle Cove – $2.510M
-- Roseville – $2.510M
-- Roseville Chase – $2.510M
-- Castlecrag – $2.273M
+- Seaforth - $2.656M
+- Castle Cove - $2.510M
+- Roseville - $2.510M
+- Roseville Chase - $2.510M
+- Castlecrag - $2.273M
 
 The highest-value locations were concentrated predominantly around the Sydney metropolitan area.
 
