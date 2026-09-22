@@ -1,0 +1,1641 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/20/2026 2:14:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ANJUKIRAN"
+  DTS:CreatorName="ANJUKIRAN\aanju"
+  DTS:DTSID="{8FA6398A-D0D2-4DCE-A56B-058774524DDC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="5129"
+  DTS:ObjectName="Load_Raw_Data"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{E45EC364-C995-4A06-BCA8-FA7803830A80}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8CC7D87F-E214-4C13-A82F-4E8582B1FF16}"
+      DTS:ObjectName="ANJUKIRAN\SQLEXPRESS.PropertyDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANJUKIRAN\SQLEXPRESS;User ID=;Initial Catalog=PropertyDW;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Load_Raw_Data-{8CC7D87F-E214-4C13-A82F-4E8582B1FF16}ANJUKIRAN\SQLEXPRESS.PropertyDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{AE6C4C08-9757-4691-9151-E60442BF7217}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Desktop\Property Analysis\Data\Raw Dataset-20260617T074014Z-3-001\Raw Dataset\Australia Dataset\NSW_PropertyMedainValue.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8CC8992C-EAAA-4816-B7D2-4963391672A1}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Desktop\Property Analysis\Data\Raw Dataset-20260617T074014Z-3-001\Raw Dataset\Australia Dataset\AUS_SubCityDistrictState_Data.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2871875D-0238-4A61-A38A-0C91885D7A18}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="5129"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Desktop\Property Analysis\Data\Raw Dataset-20260617T074014Z-3-001\Raw Dataset\Australia Dataset\NSW-Public-Schools-Master-Dataset-07032017.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_code"
+              DTS:DTSID="{3D4C33D3-116B-40A0-AFC4-F5752ABB694D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AgeID"
+              DTS:DTSID="{C94E2556-FD8C-4566-A6D3-B6C0F262AA59}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_name"
+              DTS:DTSID="{2839F541-982A-454D-BBC0-AB7944AB661C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="street"
+              DTS:DTSID="{D5456EF7-7F6C-49D5-AC2B-5070C532936C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="town_suburb"
+              DTS:DTSID="{3D5028DE-7EAC-4E2B-B215-132B15EAF786}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="postcode"
+              DTS:DTSID="{F27B8CF0-A6B0-4727-AAC2-1DF48F385A2B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="student_number"
+              DTS:DTSID="{F2241140-BAA7-4502-9E82-2647AE30C133}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="indigenous_pct"
+              DTS:DTSID="{0CC298E1-66AF-45FB-96DA-CD3E2A241F6E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lbote_pct"
+              DTS:DTSID="{A0B9BFDA-A0F8-428F-B889-D7E71DF32C93}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ICSEA_Value"
+              DTS:DTSID="{62D91366-6789-4004-8503-1049153DC57F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="level_of_schooling"
+              DTS:DTSID="{F0A1809F-BB97-4D29-BF46-5DBEA5A2FDAE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="selective_school"
+              DTS:DTSID="{9333EFB1-3A8E-4A2D-8B1A-7612D19C447A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="opportunity_class"
+              DTS:DTSID="{C0684EC8-D120-4F46-87A9-867DEE9566F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_specialty_type"
+              DTS:DTSID="{F95AFE61-715F-4824-8451-14307E0E903A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_subtype"
+              DTS:DTSID="{B0D0C655-FFA4-495C-9A6A-57C7DBF0604E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="support_classes"
+              DTS:DTSID="{4A422D9D-B7C3-4C59-A0A8-DE2AFB2B2906}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="preschool_ind"
+              DTS:DTSID="{63FB15EB-EF90-4AE4-B06E-DA93E775B7E0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="distance_education"
+              DTS:DTSID="{6719AF90-BE26-4BBA-A4D4-BC4A6DA661C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="intensive_english_centre"
+              DTS:DTSID="{EC6D14D6-A309-4D0F-AC91-6FDAAE2CE96E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_gender"
+              DTS:DTSID="{4F57E687-3E6C-4A01-A97D-11CFDE50AD59}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="phone"
+              DTS:DTSID="{F86B66C8-FD9F-446F-92AF-18B2F92A1C5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="school_email"
+              DTS:DTSID="{AE50FB44-571C-4793-9C7B-22C76ACBF025}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fax"
+              DTS:DTSID="{3068BB1A-928A-43C0-9FA5-4E448EAE18E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="late_opening_school"
+              DTS:DTSID="{43E78EBF-8A20-4FE1-AAB3-80B3BAE87797}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_1st_teacher"
+              DTS:DTSID="{C8714C4C-F22B-417D-9245-50E0E893F90E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="lga"
+              DTS:DTSID="{C9FC5D26-EF21-4BA1-819E-FF60A9388AA6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="electorate"
+              DTS:DTSID="{8DB94DA7-4789-4DDE-93D3-DFE84E9DE60B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fed_electorate"
+              DTS:DTSID="{93857B06-4361-4E44-A6FF-ABB518002844}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="operational_directorate"
+              DTS:DTSID="{10B51C7C-4FDB-497D-85D7-12F87072A4E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="principal_network"
+              DTS:DTSID="{272723F0-B939-44D7-8180-E7B4EF9A655F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="facs_district"
+              DTS:DTSID="{47D798C1-9461-444B-9B74-9F465CEB38EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="local_health_district"
+              DTS:DTSID="{F3BB3B4D-2C27-46B1-934B-BBCD6DA63042}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="aecg_region"
+              DTS:DTSID="{9D163F89-BF65-4253-AD5C-2E38B2D55B41}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ASGS_remoteness"
+              DTS:DTSID="{7250B0F9-F432-40BD-8EFB-ED2238175B81}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="latitude"
+              DTS:DTSID="{14E8476E-4405-4570-92DC-903E43B9F378}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="longitude"
+              DTS:DTSID="{7333F6ED-7169-4704-BF55-EAA0FF40362C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="date_extracted"
+              DTS:DTSID="{9E45016C-E09C-4345-AE14-D64E0267E1A1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load Location Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E7ED7214-3539-4E27-BF73-21EF666002B2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Location Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Location Data\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'AUS_Post_suburb v2$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Location Data\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[postcode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[postcode]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[postcode]"
+                      name="postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[suburb]"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[suburb]"
+                      name="suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[city]"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state_code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[state_code]"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state_code]"
+                      name="state_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[lat]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lon]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[lon]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lon]"
+                      name="lon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[Distric]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Distric]"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[Distric]"
+                      name="Distric"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[postcode]"
+                      dataType="r8"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[state_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[lon]"
+                      dataType="r8"
+                      name="lon" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Distric]"
+                      dataType="wstr"
+                      length="255"
+                      name="Distric" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[postcode]"
+                      dataType="r8"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[postcode]"
+                      name="postcode" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[suburb]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[suburb]"
+                      name="suburb" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[state_code]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[state_code]"
+                      name="state_code" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[lat]"
+                      dataType="r8"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[lat]"
+                      name="lat" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[lon]"
+                      dataType="r8"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[lon]"
+                      name="lon" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[Distric]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[Distric]"
+                      name="Distric" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Location Data\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[load_Location]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Location Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[postcode]"
+                      cachedDataType="r8"
+                      cachedName="postcode"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[postcode]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[suburb]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="suburb"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[suburb]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[suburb]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[state_code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state_code"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[state_code]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lat]"
+                      cachedDataType="r8"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[lon]"
+                      cachedDataType="r8"
+                      cachedName="lon"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lon]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[lon]" />
+                    <inputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Distric]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Distric"
+                      externalMetadataColumnId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distric]"
+                      lineageId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output].Columns[Distric]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="255"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[state_code]"
+                      dataType="wstr"
+                      length="255"
+                      name="state_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[lon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="lon" />
+                    <externalMetadataColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distric]"
+                      dataType="wstr"
+                      length="255"
+                      name="Distric" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Location Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Location Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Location Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Location Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Location Data.Paths[Excel Source Output]"
+              endId="Package\Load Location Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Load Location Data\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Property Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FE30C5AC-743E-47D9-A37A-E7F80C21CB92}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Property Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load Property Data\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">NSW_PropertyMedainValue#csv$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Property Data\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[City/Town]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[City/Town]"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[City/Town]"
+                      name="City/Town"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Suburb]"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Suburb]"
+                      name="Suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Postcode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Postcode]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[District]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[District]"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[District]"
+                      name="District"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location]"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Property_Median_Value]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Property_Median_Value]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Property_Median_Value]"
+                      name="Property_Median_Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Updated_Year]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Year]"
+                      name="Updated_Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Month]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Updated_Month]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Month]"
+                      name="Updated_Month"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[City/Town]"
+                      dataType="wstr"
+                      length="255"
+                      name="City/Town" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Postcode]"
+                      dataType="r8"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="255"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Property_Median_Value]"
+                      dataType="cy"
+                      name="Property_Median_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Updated_Year]"
+                      dataType="r8"
+                      name="Updated_Year" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].ExternalColumns[Updated_Month]"
+                      dataType="r8"
+                      name="Updated_Month" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[City/Town]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[City/Town]"
+                      name="City/Town" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Suburb]"
+                      name="Suburb" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Postcode]"
+                      dataType="r8"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Postcode]"
+                      name="Postcode" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[District]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[District]"
+                      name="District" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Location]"
+                      name="Location" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Property_Median_Value]"
+                      dataType="cy"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Property_Median_Value]"
+                      name="Property_Median_Value" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Updated_Year]"
+                      dataType="r8"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Updated_Year]"
+                      name="Updated_Year" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Updated_Month]"
+                      dataType="r8"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[Updated_Month]"
+                      name="Updated_Month" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load Property Data\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[load_Property]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load Property Data\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City/Town]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City/Town"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City/Town]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[City/Town]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Suburb]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Suburb"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Suburb]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                      cachedDataType="r8"
+                      cachedName="Postcode"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[District]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="District"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[District]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Location"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Location]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Property_Median_Value]"
+                      cachedDataType="cy"
+                      cachedName="Property_Median_Value"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Median_Value]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Property_Median_Value]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Updated_Year]"
+                      cachedDataType="r8"
+                      cachedName="Updated_Year"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Updated_Year]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Year]" />
+                    <inputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Updated_Month]"
+                      cachedDataType="r8"
+                      cachedName="Updated_Month"
+                      externalMetadataColumnId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Updated_Month]"
+                      lineageId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output].Columns[Updated_Month]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City/Town]"
+                      dataType="wstr"
+                      length="255"
+                      name="City/Town" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="255"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="255"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Median_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Property_Median_Value" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Updated_Year]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Updated_Year" />
+                    <externalMetadataColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Updated_Month]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Updated_Month" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Property Data\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Property Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Property Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Property Data\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load Property Data.Paths[Excel Source Output]"
+              endId="Package\Load Property Data\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Load Property Data\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Raw Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7FBF900C-EA42-4259-A859-A7CB011D6B65}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Raw Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8CC7D87F-E214-4C13-A82F-4E8582B1FF16}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.load_Property;&#xA;TRUNCATE TABLE dbo.load_Location;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EE8C2141-D805-4908-B8F1-D19FE8A0A182}"
+      DTS:From="Package\Truncate Raw Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Property Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FDE23ABD-F13F-4E19-8B2D-C594D7C48944}"
+      DTS:From="Package\Load Property Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load Location Data" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,40"
+          Id="Package\Load Location Data"
+          TopLeft="636.54763907701,172.823531835549" />
+        <NodeLayout
+          Size="168,40"
+          Id="Package\Load Property Data"
+          TopLeft="371.071442234882,165.94117879785" />
+        <NodeLayout
+          Size="172,40"
+          Id="Package\Truncate Raw Tables"
+          TopLeft="137.500007557018,155.235296294763" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="309.500007557018,175.235296294763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.5714346778639,10.7058825030871"
+              Start="0,0"
+              End="54.0714346778639,10.7058825030871">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.7857173389319,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.7857173389319,0"
+                    Point2="30.7857173389319,0"
+                    Point3="30.7857173389319,4" />
+                  <mssgle:LineSegment
+                    End="30.7857173389319,6.70588250308714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.7857173389319,6.70588250308714"
+                    Point2="30.7857173389319,10.7058825030871"
+                    Point3="34.7857173389319,10.7058825030871" />
+                  <mssgle:LineSegment
+                    End="54.0714346778639,10.7058825030871" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="539.071442234882,189.3823553167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.4761968421283,0"
+              Start="0,0"
+              End="89.9761968421283,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.9761968421283,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load Location Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,40"
+          Id="Package\Load Location Data\OLE DB Destination"
+          TopLeft="317,167" />
+        <NodeLayout
+          Size="136,40"
+          Id="Package\Load Location Data\Excel Source"
+          TopLeft="301,28" />
+        <EdgeLayout
+          Id="Package\Load Location Data.Paths[Excel Source Output]"
+          TopLeft="370.2,69.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,97.4"
+              Start="0,0"
+              End="32,89.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.7"
+                    Point2="0,48.7"
+                    Point3="4,48.7" />
+                  <mssgle:LineSegment
+                    End="28,48.7" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,48.7"
+                    Point2="32,48.7"
+                    Point3="32,52.7" />
+                  <mssgle:LineSegment
+                    End="32,89.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Location Data\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Location Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Property Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138.400000000001,41.6000000000001"
+          Id="Package\Load Property Data\Excel Source"
+          TopLeft="164.285717083483,58.1176478739016" />
+        <NodeLayout
+          Size="170.400000000001,41.6000000000001"
+          Id="Package\Load Property Data\OLE DB Destination"
+          TopLeft="202.14286058533,156.000002187841" />
+        <EdgeLayout
+          Id="Package\Load Property Data.Paths[Excel Source Output]"
+          TopLeft="233.485717083483,99.7176478739016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.8571435018462,56.2823543139395"
+              Start="0,0"
+              End="53.8571435018462,48.7823543139395">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1411771569698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.1411771569698"
+                    Point2="0,28.1411771569698"
+                    Point3="4,28.1411771569698" />
+                  <mssgle:LineSegment
+                    End="49.8571435018462,28.1411771569698" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.8571435018462,28.1411771569698"
+                    Point2="53.8571435018462,28.1411771569698"
+                    Point3="53.8571435018462,32.1411771569698" />
+                  <mssgle:LineSegment
+                    End="53.8571435018462,48.7823543139395" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Property Data\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Property Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/20/2026 3:22:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ANJUKIRAN"
+  DTS:CreatorName="ANJUKIRAN\aanju"
+  DTS:DTSID="{31950CF4-0D6E-4C39-BEF1-B3931F158B35}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="5129"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{B895C220-C5E3-440B-A19C-FFE1D9EAF4F8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F6319624-E2C7-4DB9-875F-DE26A4161263}"
+      DTS:ObjectName="ANJUKIRAN\SQLEXPRESS.PropertyDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ANJUKIRAN\SQLEXPRESS;User ID=;Initial Catalog=PropertyDW;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Package1-{F6319624-E2C7-4DB9-875F-DE26A4161263}ANJUKIRAN\SQLEXPRESS.PropertyDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimLocation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BFD35394-03F5-48BD-8C0D-50A883907713}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimLocation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimLocation\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimLocation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimLocation\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Postcode"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Suburb]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Suburb"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Suburb]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateCode"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                      cachedDataType="numeric"
+                      cachedName="Latitude"
+                      cachedPrecision="10"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                      cachedDataType="numeric"
+                      cachedName="Longitude"
+                      cachedPrecision="10"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[District]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="District"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[District]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="10"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="10"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="255"
+                      name="District" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimLocation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimLocation\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    postcode AS Postcode,
+    suburb AS Suburb,
+    city AS City,
+    state AS State,
+    state_code AS StateCode,
+    TRY_CAST(lat AS DECIMAL(10,6)) AS Latitude,
+    TRY_CAST(lon AS DECIMAL(10,6)) AS Longitude,
+    Distric AS District
+FROM dbo.load_Location
+WHERE state = 'New South Wales'
+   OR state_code = 'NSW';</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimLocation\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      length="20"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Suburb]"
+                      name="Suburb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateCode]"
+                      name="StateCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="10"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="10"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[District]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].Columns[District]"
+                      name="District"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Postcode" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      name="Suburb" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="255"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateCode" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                      dataType="numeric"
+                      name="Latitude"
+                      precision="10"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                      dataType="numeric"
+                      name="Longitude"
+                      precision="10"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                      dataType="wstr"
+                      length="255"
+                      name="District" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      name="Postcode" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Suburb]"
+                      name="Suburb" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateCode]"
+                      name="StateCode" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      dataType="numeric"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                      name="Latitude"
+                      precision="10"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      dataType="numeric"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                      name="Longitude"
+                      precision="10"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[District]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[District]"
+                      name="District" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimLocation.Paths[OLE DB Source Output]"
+              endId="Package\Load DimLocation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimLocation\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load FactProperty"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{84B68BF9-1D51-4E99-87D6-0FF56F61B60B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load FactProperty"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load FactProperty\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactProperty]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactProperty\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LocationKey]"
+                      cachedDataType="i4"
+                      cachedName="LocationKey"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]" />
+                    <inputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PropertyMedianValue]"
+                      cachedDataType="numeric"
+                      cachedName="PropertyMedianValue"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyMedianValue]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]" />
+                    <inputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="CategoryKey"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]" />
+                    <inputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdatedYear]"
+                      cachedDataType="i4"
+                      cachedName="UpdatedYear"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedYear]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedYear]" />
+                    <inputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdatedMonth]"
+                      cachedDataType="i4"
+                      cachedName="UpdatedMonth"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedMonth]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedMonth]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyFactKey]"
+                      dataType="i4"
+                      name="PropertyFactKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CategoryKey]"
+                      dataType="i4"
+                      name="CategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PropertyMedianValue]"
+                      dataType="numeric"
+                      name="PropertyMedianValue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedYear]"
+                      dataType="i4"
+                      name="UpdatedYear" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedMonth]"
+                      dataType="i4"
+                      name="UpdatedMonth" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load FactProperty\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load FactProperty\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    L.LocationKey,
+    C.CategoryKey,
+    CAST(P.Property_Median_Value AS DECIMAL(18,2)) AS PropertyMedianValue,
+    CAST(P.Updated_Year AS INT) AS UpdatedYear,
+    CAST(P.Updated_Month AS INT) AS UpdatedMonth
+FROM dbo.load_Property P
+INNER JOIN dbo.DimLocation L
+    ON P.Postcode = L.Postcode
+   AND P.Suburb = L.Suburb
+INNER JOIN dbo.DimCategory C
+    ON P.Category = C.CategoryName;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load FactProperty\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[ANJUKIRAN\SQLEXPRESS.PropertyDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[LocationKey]"
+                      name="LocationKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PropertyMedianValue]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[PropertyMedianValue]"
+                      name="PropertyMedianValue"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryKey]"
+                      name="CategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdatedYear]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedYear]"
+                      name="UpdatedYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedMonth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdatedMonth]"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdatedMonth]"
+                      name="UpdatedMonth"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LocationKey]"
+                      dataType="i4"
+                      name="LocationKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PropertyMedianValue]"
+                      dataType="numeric"
+                      name="PropertyMedianValue"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryKey]"
+                      dataType="i4"
+                      name="CategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdatedYear]"
+                      dataType="i4"
+                      name="UpdatedYear" />
+                    <externalMetadataColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdatedMonth]"
+                      dataType="i4"
+                      name="UpdatedMonth" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LocationKey]"
+                      name="LocationKey" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PropertyMedianValue]"
+                      dataType="numeric"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PropertyMedianValue]"
+                      name="PropertyMedianValue"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryKey]"
+                      name="CategoryKey" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdatedYear]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdatedYear]"
+                      name="UpdatedYear" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdatedMonth]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdatedMonth]"
+                      name="UpdatedMonth" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load FactProperty.Paths[OLE DB Source Output]"
+              endId="Package\Load FactProperty\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load FactProperty\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate DW Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{505CE874-E504-47B4-8264-77441964FACE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate DW Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F6319624-E2C7-4DB9-875F-DE26A4161263}"
+          SQLTask:SqlStatementSource="DELETE FROM dbo.FactProperty;&#xA;DELETE FROM dbo.DimLocation;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{92C16DA8-F5B5-46BD-BAF3-C4D87677704E}"
+      DTS:From="Package\Truncate DW Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load DimLocation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7CDC9D3-AA3F-4F3A-A019-65236D9DB620}"
+      DTS:From="Package\Load DimLocation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load FactProperty" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,40"
+          Id="Package\Load DimLocation"
+          TopLeft="352.261919098444,111.647060389337" />
+        <NodeLayout
+          Size="164,40"
+          Id="Package\Load FactProperty"
+          TopLeft="572.500010494675,114.705883961648" />
+        <NodeLayout
+          Size="172,40"
+          Id="Package\Truncate DW Tables"
+          TopLeft="68.2142880467735,95.5882366347065" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="240.214288046774,115.588236634706">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.04763105167,16.0588237546307"
+              Start="0,0"
+              End="104.54763105167,16.0588237546307">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.0238155258352,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.0238155258352,0"
+                    Point2="56.0238155258352,0"
+                    Point3="56.0238155258352,4" />
+                  <mssgle:LineSegment
+                    End="56.0238155258352,12.0588237546307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.0238155258352,12.0588237546307"
+                    Point2="56.0238155258352,16.0588237546307"
+                    Point3="60.0238155258352,16.0588237546307" />
+                  <mssgle:LineSegment
+                    End="104.54763105167,16.0588237546307" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="512.261919098444,133.176472175492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.2380913962312,0"
+              Start="0,0"
+              End="52.7380913962312,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="52.7380913962312,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DimLocation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.400000000001,41.6000000000001"
+          Id="Package\Load DimLocation\OLE DB Destination"
+          TopLeft="222.142860925927,165.176472904773" />
+        <NodeLayout
+          Size="149.6,41.6000000000001"
+          Id="Package\Load DimLocation\OLE DB Source"
+          TopLeft="149.285716828035,74.9411775216099" />
+        <EdgeLayout
+          Id="Package\Load DimLocation.Paths[OLE DB Source Output]"
+          TopLeft="224.085716828035,116.54117752161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83.2571440978927,48.6352953831631"
+              Start="0,0"
+              End="83.2571440978927,41.1352953831631">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3176476915815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3176476915815"
+                    Point2="0,24.3176476915815"
+                    Point3="4,24.3176476915815" />
+                  <mssgle:LineSegment
+                    End="79.2571440978927,24.3176476915815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.2571440978927,24.3176476915815"
+                    Point2="83.2571440978927,24.3176476915815"
+                    Point3="83.2571440978927,28.3176476915815" />
+                  <mssgle:LineSegment
+                    End="83.2571440978927,41.1352953831631" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimLocation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimLocation\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load FactProperty">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,40"
+          Id="Package\Load FactProperty\OLE DB Source"
+          TopLeft="236,44" />
+        <NodeLayout
+          Size="168,40"
+          Id="Package\Load FactProperty\OLE DB Destination"
+          TopLeft="366,214" />
+        <EdgeLayout
+          Id="Package\Load FactProperty.Paths[OLE DB Source Output]"
+          TopLeft="310.8,85.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.4,128.4"
+              Start="0,0"
+              End="140.4,120.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.2"
+                    Point2="0,64.2"
+                    Point3="4,64.2" />
+                  <mssgle:LineSegment
+                    End="136.4,64.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.4,64.2"
+                    Point2="140.4,64.2"
+                    Point3="140.4,68.2" />
+                  <mssgle:LineSegment
+                    End="140.4,120.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactProperty\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load FactProperty\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
