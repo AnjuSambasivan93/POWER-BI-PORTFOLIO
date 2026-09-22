@@ -7,7 +7,9 @@ An end-to-end Business Intelligence project analysing property median values acr
 The project transforms raw property and location datasets through an ETL and data warehousing pipeline and presents the results in an interactive Power BI dashboard.
 
 The analysis covers **3,914 location-level property median records** representing **3,839 suburbs**, with median values ranging from approximately **$95.5K to $3.21M**.
+## Dashboard Preview
 
+![NSW Property Market Analysis Dashboard](Images/dashboard-overview.png)
 ## Technology Stack
 
 - Power BI
